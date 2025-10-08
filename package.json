@@ -1,0 +1,25 @@
+{
+  "name": "playwright-origin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:docker": "npx playwright test",
+    "test:allure": "npx playwright test && allure generate allure-results --clean -o allure-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.1"
+  },
+  "dependencies": {
+    "pdf-parse": "^2.2.2"
+  }
+}
