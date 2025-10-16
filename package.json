@@ -16,10 +16,11 @@
   "devDependencies": {
     "@playwright/test": "^1.56.0",
     "@types/node": "^24.7.0",
+    "@types/pdf-parse": "^1.1.5",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.1"
   },
   "dependencies": {
-    "pdf-parse": "^2.2.2"
+    "pdf-parse": "^2.3.12"
   }
 }
