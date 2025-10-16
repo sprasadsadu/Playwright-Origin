@@ -1,59 +1,81 @@
-# originTest
-Origin Screening Test
-# Origin Energy Plan Flow - Playwright Automation
+This repository contains Playwright end-to-end tests for verifying gas plan pricing details on the Origin Energy website.
 
-This repository contains Playwright end-to-end tests for verifying Origin Energy gas plan pricing details. The tests automate address selection, plan verification, and PDF download & validation.
+Features
 
-## Features
+Navigate to the Origin Energy pricing page.
 
-- Navigate to Origin Energy pricing page.
-- Search and select addresses from test data.
-- Verify visibility of energy plans.
-- Uncheck electricity plans to filter gas-only plans.
-- Open plan details in a new tab.
-- Download and parse plan PDF to assert it contains the word **"Gas"**.
+Select addresses and verify gas-only plans.
 
-## Prerequisites
+Download and validate PDFs to ensure they contain the word "Gas".
 
-- [Node.js](https://nodejs.org/) (v16+ recommended)
-- [Docker](https://www.docker.com/) (optional, for running tests inside container)
-- [Playwright](https://playwright.dev/) (installed via npm)
+Prerequisites
 
----
+Node.js
+ (v16+ recommended)
 
-## Setup
+Docker
+ (optional)
 
-1. Clone the repo:
-   git clone https://github.com/sprasadsadu/originTest
+Playwright
+ (install via npm)
 
-2. Install dependencies
-   npm install
+ Setup
 
-3. Install Playwright browsers
-    npx playwright install
+Clone the repo:
 
-4. Running Tests Locally
-   npx playwright test
-
-| Step               | Command                                                             |
-| ------------------ | ------------------------------------------------------------------- |
-| Install plugin     | `npm i -D allure-playwright`                                        |
-| Update reporter    | add `['allure-playwright']` to `reporter` in `playwright.config.ts` |
-| Run tests          | `npx playwright test`                                               |
-| Install Allure CLI | `npm i -g allure-commandline`                                       |
-| Generate report    | `allure generate allure-results --clean -o allure-report`           |
-| View report        | `allure open allure-report`                                         |
+git clone https://github.com/sprasadsadu/originTest
 
 
-##Running Tests Inside Docker
+Install dependencies:
 
-The project includes a Dockerfile and docker-compose.yml for containerized execution.
+npm install
 
-Build and run container:
+
+Install Playwright browsers:
+
+npx playwright install
+
+
+Run tests locally:
+
+npx playwright test
+
+Reporting (Optional)
+
+Install Allure Playwright plugin:
+
+npm install --save-dev allure-playwright
+
+
+Update the reporter in playwright.config.ts:
+
+Add ['allure-playwright'] to reporter.
+
+Install Allure CLI:
+
+npm install -g allure-commandline
+
+
+Generate and view the report:
+
+allure generate allure-results --clean -o allure-report
+allure open allure-report
+
+Running Tests with Docker
+
+To run the tests in a Docker container:
+
+Build and run the container:
+
 docker-compose up --build
 
-Or run directly:
-docker build -t origin-playwright .
-docker run --rm -v "C:\Users\Sadhu\playwright-Origin:/app" playwright-origin /*headless mode*/
-docker run --rm -v "${PWD}:/app" playwright-origin npx playwright test tests/originWebFlow.spec.ts --headed
 
+Or run directly:
+
+docker build -t origin-playwright .
+docker run --rm -v "${PWD}:/app" origin-playwright npx playwright test
+
+
+For headless mode:
+
+docker run --rm -v "${PWD}:/app" origin-playwright npx playwright test --headless
